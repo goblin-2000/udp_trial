@@ -7,6 +7,8 @@ var server = dgram.createSocket('udp6');
 const sqlite3 = require('sqlite3').verbose();
 var ts = Date.now();
 
+
+
 var message = "";
 var lat, lon, ns, ew;
 
@@ -25,7 +27,7 @@ try {
 }
 
 server.on('message', (msg, rinfo) => {
-    console.log("hello boo" + msg);
+    
     message = msg;
     var splittedValues = message.split(",");
     lat = splittedValues[3];
@@ -33,6 +35,9 @@ server.on('message', (msg, rinfo) => {
     ns = splittedValues[4];
     ew = splittedValues[6];
     console.log("received" + message);
+  //console.log("hello boo");
+    
+
     db.run(`INSERT INTO data(timestamp,value) VALUES(?,?)`, [ts, msg], function (err) {
         if (err) {
             console.log(err);
@@ -64,11 +69,10 @@ server.bind(13000);
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
-app.get('/', function (req, res) {
-    // console.log("booo" + message);
-    res.render('index.html', { lat:lat,ns:ns,lon:lon,ew:ew});
+app.get('/', function (req, res){
+    res.render('index.html',{message:message});
 });
 
-app.listen(80, function () {
+app.listen(80, function () { 
     console.log("server is running at localhost:80");
 });

@@ -1,19 +1,25 @@
 {
-  "name": "simpleserver",
+  "name": "udp_trial",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "author": "Sujith D <sujithsuji1098@gmail.com> (https://github.com/Sujiiii/NodeJsRepo)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goblin-2000/udp_trial.git"
+  },
+  "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/goblin-2000/udp_trial/issues"
+  },
+  "homepage": "https://github.com/goblin-2000/udp_trial#readme",
   "dependencies": {
     "ejs": "^2.7.1",
-<<<<<<< HEAD
     "express": "^4.17.1",
-=======
->>>>>>> 7149caa53c08293249868d93cc595018a6291e9b
     "sqlite3": "^4.1.0"
   }
 }
