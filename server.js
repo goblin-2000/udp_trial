@@ -8,6 +8,7 @@ const sqlite3 = require('sqlite3').verbose();
 var ts = Date.now();
 
 
+
 var message = "";
 
 var db = new sqlite3.Database('aerophilia.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE,
@@ -29,7 +30,8 @@ server.on('message', (msg, rinfo) => {
     message = msg;
     console.log("received" + message);
   //console.log("hello boo");
-    message = msg;
+    
+
     db.run(`INSERT INTO data(timestamp,value) VALUES(?,?)`, [ts, msg], function (err) {
         if (err) {
             console.log(err);
@@ -61,11 +63,10 @@ server.bind(13000);
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
-app.get('/', function (req, res) {
+app.get('/', function (req, res){
     res.render('index.html',{message:message});
 });
 
 app.listen(80, function () { 
     console.log("server is running at localhost:80");
 });
-

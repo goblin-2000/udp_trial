@@ -35,7 +35,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="display-4 text-left" ><%= message %><br></h1>
+          <h1 class="display-4 text-left" ><br></h1>
         </div>
       </div>
     </div>
@@ -62,6 +62,13 @@
         <div class="col-md-6"><i class="fa fa-camera-retro fa-5x"></i></div>
         <div class="col-md-6"><i class="fa fa-5x fa-camera-retro"></i></div>
       </div>
+      <div class="row">
+        <div class="col-md-6">
+        <p id ="lat">Latitude: </p>
+        <p id ="lon">Longitude: </p>        
+        </div>
+        <!-- <div class="col-md-6"><i class="fa fa-5x fa-camera-retro"></i></div> --> 
+      </div>
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous" style=""></script>
@@ -77,6 +84,10 @@ var lat=arr[3];
 var ns=arr[4];
 var lon=arr[5];
 var ew=arr[6];
+
+document.getElementById("lat").innerHTML+=lat + " "+ns;
+document.getElementById("lon").innerHTML+=lon + " "+ew;
+
   </script>
 </body>
 
