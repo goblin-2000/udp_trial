@@ -7,11 +7,8 @@ var server = dgram.createSocket('udp6');
 const sqlite3 = require('sqlite3').verbose();
 var ts = Date.now();
 
-<<<<<<< HEAD
+
 var message = "";
-=======
-var message;
->>>>>>> 7149caa53c08293249868d93cc595018a6291e9b
 
 var db = new sqlite3.Database('aerophilia.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE,
     (err) => {
@@ -28,14 +25,11 @@ try {
 }
 
 server.on('message', (msg, rinfo) => {
-<<<<<<< HEAD
-    console.log("hello boo" + msg);
+    
     message = msg;
     console.log("received" + message);
-=======
-    //console.log("hello boo");
+  //console.log("hello boo");
     message = msg;
->>>>>>> 7149caa53c08293249868d93cc595018a6291e9b
     db.run(`INSERT INTO data(timestamp,value) VALUES(?,?)`, [ts, msg], function (err) {
         if (err) {
             console.log(err);
@@ -68,19 +62,10 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
 app.get('/', function (req, res) {
-<<<<<<< HEAD
-    console.log("booo" + message);
     res.render('index.html',{message:message});
-});
-
-app.listen(80, function () {
-    console.log("server is running at localhost:80");
-});
-=======
-    res.render('index.html',{message:message,ts:ts});
 });
 
 app.listen(80, function () { 
     console.log("server is running at localhost:80");
-})
->>>>>>> 7149caa53c08293249868d93cc595018a6291e9b
+});
+
