@@ -10,7 +10,10 @@
   "license": "ISC",
   "dependencies": {
     "ejs": "^2.7.1",
+<<<<<<< HEAD
     "express": "^4.17.1",
+=======
+>>>>>>> 7149caa53c08293249868d93cc595018a6291e9b
     "sqlite3": "^4.1.0"
   }
 }
