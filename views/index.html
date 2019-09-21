@@ -77,16 +77,16 @@
   <script>
   console.log("hello ");
 
-  var message = "<%= message %>";
-  console.log("got " + message);
-var arr=message.split(',');
-var lat=arr[3];
-var ns=arr[4];
-var lon=arr[5];
-var ew=arr[6];
+  // var message = "<%= message %>";
+  // console.log("got " + message);
+// var arr=message.split(',');
+// var lat=arr[3];
+// var ns=arr[4];
+// var lon=arr[5];
+// var ew=arr[6];
 
-document.getElementById("lat").innerHTML+=lat + " "+ns;
-document.getElementById("lon").innerHTML+=lon + " "+ew;
+document.getElementById("lat").innerHTML+="<%= lat %>" + " "+"<%= ns %>";
+document.getElementById("lon").innerHTML+="<%= lon %>" + " "+"<%= ew %>";
 
   </script>
 </body>
